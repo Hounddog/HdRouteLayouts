@@ -10,11 +10,13 @@ HdRouteLayouts is a very simple module that allows you to attach layout configur
 
 ### Main Setup
 
-1. Clone this project into your `./vendor/` directory and enable it in your
-   `application.config.php` file.
+Installation of this module uses composer. For composer documentation, please refer to getcomposer.org.
+
+php composer.phar require hounddog/hd-route-layouts
+# (When asked for a version, type `0.*`)
+Then add HdRouteLayouts to your config/application.config.php
 
 ## Usage
-
 
 Using HdRouteLayouts is very, very simple. In any module config or autoloaded
 config file simply specify the following:
