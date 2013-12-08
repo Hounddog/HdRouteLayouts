@@ -1,7 +1,5 @@
 # HdRouteLayouts Module for Zend Framework 2
 
-Version 0.0.1 Created by [Martin Shwalbe](https://hounddog.github.com)
-
 ## Introduction
 
 HdRouteLayouts is a very simple module that allows you to attach layout configuration to a route.
