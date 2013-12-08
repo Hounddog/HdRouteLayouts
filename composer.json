@@ -3,9 +3,12 @@
     "description": "Simple ZF2 module for making route based layouts.",
     "type": "library",
     "keywords": [
-        "zf2"
+        "zf2",
+        "layout",
+        "route"
     ],
     "homepage": "https://github.com/Hounddog/HdRouteLayout",
+    "license": "MIT",
     "authors": [
         {
             "name": "Martin Shwalbe",
