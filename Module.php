@@ -11,13 +11,13 @@ class Module
             $config          = $e->getApplication()->getServiceManager()->get('config');
             $layoutConfig    = $config['route_layouts'];
             
-            if (isset(layoutConfig[$routeName])) {
-                $controller->layout(layoutConfig[$routeName]);
+            if (isset($layoutConfig[$routeName])) {
+                $controller->layout($layoutConfig[$routeName]);
             } else {
-                $rules = array_keys(layoutConfig);
-                foreach ($rules as $routeRule) {
+                $rules = array_keys($layoutConfig);
+                foreach ($rules as $routeRule) {    
                     if (fnmatch($routeRule, $routeName, FNM_CASEFOLD)) {
-                        $controller->layout(layoutConfig[$routeRule]);
+                        $controller->layout($layoutConfig[$routeRule]);
                         break;
                     }
                 } 
