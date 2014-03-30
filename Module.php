@@ -12,12 +12,10 @@ class Module
             
             foreach (array_keys($config['route_layouts']) as $routeRule) {
                 if (fnmatch($routeRule, $routeName, FNM_CASEFOLD)) {
-                    $allowedRoles = $this->rules[$routeRule];
                     $controller->layout($config['route_layouts'][$routeRule]);
                     break;
                 }
             }
-        }
         }, 100);
     }
 }
