@@ -9,9 +9,15 @@ class Module
             $controller      = $e->getTarget();
             $routeName       = $e->getRouteMatch()->getMatchedRouteName();
             $config          = $e->getApplication()->getServiceManager()->get('config');
-            if (isset($config['route_layouts'][$routeName])) {
-                $controller->layout($config['route_layouts'][$routeName]);
+            
+            foreach (array_keys($config['route_layouts']) as $routeRule) {
+                if (fnmatch($routeRule, $routeName, FNM_CASEFOLD)) {
+                    $allowedRoles = $this->rules[$routeRule];
+                    $controller->layout($config['route_layouts'][$routeRule]);
+                    break;
+                }
             }
+        }
         }, 100);
     }
 }
