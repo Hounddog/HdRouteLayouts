@@ -9,14 +9,15 @@ class Module
             $controller      = $e->getTarget();
             $routeName       = $e->getRouteMatch()->getMatchedRouteName();
             $config          = $e->getApplication()->getServiceManager()->get('config');
+            $layoutConfig    = $config['route_layouts'];
             
-            if (isset($config['route_layouts'][$routeName])) {
-                $controller->layout($config['route_layouts'][$routeName]);
+            if (isset(layoutConfig[$routeName])) {
+                $controller->layout(layoutConfig[$routeName]);
             } else {
-                $rules = array_keys($config['route_layouts']);
+                $rules = array_keys(layoutConfig);
                 foreach ($rules as $routeRule) {
                     if (fnmatch($routeRule, $routeName, FNM_CASEFOLD)) {
-                        $controller->layout($config['route_layouts'][$routeRule]);
+                        $controller->layout(layoutConfig[$routeRule]);
                         break;
                     }
                 } 
